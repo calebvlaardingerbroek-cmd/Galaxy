@@ -1,0 +1,12 @@
+{
+  "previewPort": 3000,
+  "healthPath": "/api/state",
+  "startCommand": "docker compose -f docker-compose.base44.yml up -d",
+  "secrets": [
+    {
+      "name": "ADMIN_PASSWORD",
+      "description": "Password that unlocks the /admin owner panel. Optional: the repo placeholder in .env.base44-defaults keeps the app booting, and a value set here is loaded last so it wins.",
+      "requiredAtBoot": false
+    }
+  ]
+}

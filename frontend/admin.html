@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Galaxy — Admin</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="admin-wrap">
+      <div class="brand">
+        <span class="logo">◆</span>
+        <div>
+          <h1>GALAXY ADMIN</h1>
+          <p class="tagline">Owner access only</p>
+        </div>
+      </div>
+
+      <section class="panel" id="gate-panel">
+        <h2>Unlock</h2>
+        <p class="muted small">Enter the admin password to open the cheat panel.</p>
+        <div class="gate">
+          <input id="password" type="password" placeholder="Admin password" autocomplete="current-password" />
+          <button class="primary" id="unlock" type="button">Unlock</button>
+        </div>
+        <p class="message" id="gate-message"></p>
+      </section>
+
+      <section class="panel hidden" id="panel">
+        <h2>Your empire</h2>
+        <div class="readout">
+          <div class="stat"><span class="label">Money</span><strong id="money">0</strong></div>
+          <div class="stat"><span class="label">Per click</span><strong id="per-click">0</strong></div>
+          <div class="stat"><span class="label">Per second</span><strong id="per-sec">0</strong></div>
+          <div class="stat"><span class="label">Floor</span><strong id="floor">1 / 40</strong></div>
+        </div>
+
+        <div class="actions" style="margin-top: 18px">
+          <button class="primary big" id="grant" type="button">Give me 100 nonillion</button>
+          <label class="toggle">
+            <input id="boost" type="checkbox" />
+            <span>Every click in the game gives me 100 nonillion</span>
+          </label>
+          <button class="danger" id="reset" type="button">Reset the whole game</button>
+        </div>
+        <p class="message" id="message"></p>
+      </section>
+
+      <a class="admin-link" href="/">← Back to the game</a>
+    </div>
+
+    <script src="/static/admin.js"></script>
+  </body>
+</html>

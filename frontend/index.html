@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Galaxy — Office Clicker</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">◆</span>
+        <div>
+          <h1>GALAXY</h1>
+          <p class="tagline">Office Clicker</p>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="label">Money</span>
+          <strong id="money">0</strong>
+        </div>
+        <div class="stat">
+          <span class="label">Per click</span>
+          <strong id="per-click">0</strong>
+        </div>
+        <div class="stat">
+          <span class="label">Per second</span>
+          <strong id="per-sec">0</strong>
+        </div>
+        <div class="stat">
+          <span class="label">Floor</span>
+          <strong id="floor">1 / 40</strong>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel clicker">
+        <div class="floor-badge">
+          <span id="floor-name">Mail Room</span>
+          <small id="floor-sub">Floor 1</small>
+        </div>
+        <button id="click-btn" class="click-btn" type="button">
+          <span class="btn-title">Work</span>
+          <small id="click-hint">+1</small>
+        </button>
+        <p class="muted" id="status">Click to earn money and climb the tower.</p>
+        <p class="boost" id="boost-badge" hidden>Admin click boost active — 100 nonillion per click</p>
+      </section>
+
+      <section class="panel">
+        <h2>Upgrades</h2>
+        <p class="muted small">Buy once, earn forever. Later upgrades unlock on higher floors.</p>
+        <ul id="upgrades" class="list"></ul>
+      </section>
+
+      <section class="panel">
+        <h2>Floors</h2>
+        <p class="muted small">Earn more to reach floor 40.</p>
+        <ol id="floors" class="floors"></ol>
+      </section>
+
+      <section class="panel">
+        <h2>Awards</h2>
+        <p class="muted small">Every award doubles your income. Floors multiply it.</p>
+        <ul id="awards" class="awards"></ul>
+        <a class="admin-link" href="/admin">Admin panel →</a>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

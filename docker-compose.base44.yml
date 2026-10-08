@@ -1,0 +1,36 @@
+services:
+  web:
+    image: python:3.12-slim
+    working_dir: /app
+    # Dev mode: deps are synced from requirements.txt on every start and the
+    # server runs from the bind-mounted source with auto-reload, so edits show up
+    # without rebuilding an image.
+    command:
+      - sh
+      - -ec
+      - |
+        pip install --no-cache-dir --disable-pip-version-check -r requirements.txt
+        exec uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir /app/backend
+    ports:
+      - "3000:8000"
+    volumes:
+      - .:/app
+      - galaxy_data:/data
+    environment:
+      DATABASE_PATH: /data/galaxy.db
+    env_file:
+      - ./.env.base44-defaults # repo placeholder, keeps the app bootable
+      - /run/base44/app.env # platform secrets, always win
+    restart: on-failure
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - >-
+          python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/state', timeout=3)"
+      interval: 15s
+      timeout: 8s
+      retries: 5
+      start_period: 180s
+
+volumes:
+  galaxy_data:
